@@ -45,6 +45,20 @@ class Solution:
     def mergeTwoLists(
         self, list1: Optional[ListNode], list2: Optional[ListNode]
     ) -> Optional[ListNode]:
+        """
+        Time Complexity
+        O(n + m):
+        Here, n is the number of nodes in list1, and m is the number of nodes in list2.
+        The algorithm iterates through both linked lists once, comparing their
+        nodes and appending the smaller node to the merged list.
+        This results in a linear traversal of all nodes in both lists.
+        Space Complexity
+        O(1):
+        The solution uses a constant amount of extra space. It does not create new nodes but
+        instead reuses the nodes from the input lists by rearranging their next pointers.
+        The only additional space used is for the dummy node and a few pointers (dummy and current),
+        which are constant in size.
+        """
         # Create a dummy node to simplify edge cases
         dummy = ListNode(-1)
         current = dummy

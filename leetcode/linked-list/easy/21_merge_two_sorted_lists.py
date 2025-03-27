@@ -42,9 +42,7 @@ class Solution:
         lists are empty, returns None.
     """
 
-    def mergeTwoLists(
-        self, list1: Optional[ListNode], list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         """
         Time Complexity
         O(n + m):
@@ -83,26 +81,6 @@ class Solution:
 # @lc code=end
 
 
-@pytest.mark.parametrize(
-    "list1, list2, expected",
-    [
-        ([], [], []),  # Both lists are empty
-        ([1, 2, 4], [], [1, 2, 4]),  # One list is empty
-        ([], [1, 3, 4], [1, 3, 4]),  # One list is empty
-        ([1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]),  # Both lists are non-empty
-        ([1, 3, 5], [2, 4, 6], [1, 2, 3, 4, 5, 6]),  # Interleaved merge
-        ([1, 1, 1], [1, 1, 1], [1, 1, 1, 1, 1, 1]),  # Duplicate values
-    ],
-)
-def test_merge_two_sorted_lists(list1, list2, expected):
-    solution = Solution()
-    l1 = list_to_linked_list(list1)
-    l2 = list_to_linked_list(list2)
-    merged_head = solution.mergeTwoLists(l1, l2)
-    result = linked_list_to_list(merged_head)
-    assert result == expected
-
-
 def list_to_linked_list(elements):
     """Helper function to convert a Python list to a linked list."""
     if not elements:
@@ -123,3 +101,23 @@ def linked_list_to_list(head):
         result.append(current.val)
         current = current.next
     return result
+
+
+@pytest.mark.parametrize(
+    "name, list1, list2, expected",
+    [
+        ("Both empty    ", [], [], []),
+        ("One empty 1   ", [1, 2, 4], [], [1, 2, 4]),
+        ("One empty 2   ", [], [1, 3, 4], [1, 3, 4]),
+        ("Non-empty     ", [1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]),
+        ("Interleaved   ", [1, 3, 5], [2, 4, 6], [1, 2, 3, 4, 5, 6]),
+        ("Duplicates    ", [1, 1, 1], [1, 1, 1], [1, 1, 1, 1, 1, 1]),
+    ],
+)
+def test_merge_two_sorted_lists(name, list1, list2, expected):
+    solution = Solution()
+    l1 = list_to_linked_list(list1)
+    l2 = list_to_linked_list(list2)
+    merged_head = solution.mergeTwoLists(l1, l2)
+    result = linked_list_to_list(merged_head)
+    assert result == expected, name

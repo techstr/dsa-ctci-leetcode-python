@@ -23,9 +23,10 @@ class Solution:
         strs (List[str]): A list of strings to analyze for the longest common prefix.
 
     Returns:
-        str: The longest common prefix shared among the input strings, 
+        str: The longest common prefix shared among the input strings,
         or an empty string if none exists.
     """
+
     # def longestCommonPrefix(self, strs: List[str]) -> str:
     #     """
     #     Time Complexity: O(n * m)
@@ -49,7 +50,6 @@ class Solution:
     #         prefix += char  # If inner loop completes, add the character to the prefix
 
     #     return prefix
-
 
     def longestCommonPrefix(self, strs: List[str]) -> str:
         """
@@ -78,19 +78,19 @@ class Solution:
 
 
 @pytest.mark.parametrize(
-    "strs, expected",
+    "name, strs, expected",
     [
-        (["flower", "flow", "flight"], "fl"),  # Common prefix exists
-        (["dog", "racecar", "car"], ""),       # No common prefix
-        (["interspecies", "interstellar", "interstate"], "inters"),  # Long common prefix
-        (["a"], "a"),                          # Single string
-        (["", "b"], ""),                       # One string is empty
-        (["c", "c"], "c"),                     # Identical strings
-        (["prefix", "prefixes", "prefixation"], "prefix"),  # Prefix is the entire first string
-        (["abc", "abcd", "ab"], "ab"),         # Partial match
-        ([], ""),                              # Empty list
+        ("common_prefix         ", ["flower", "flow", "flight"], "fl"),
+        ("no_common_prefix      ", ["dog", "racecar", "car"], ""),
+        ("long_common_prefix    ", ["interspecies", "interstellar", "interstate"], "inters"),
+        ("single_string         ", ["a"], "a"),
+        ("one_empty_string      ", ["", "b"], ""),
+        ("identical_strings     ", ["c", "c"], "c"),
+        ("entire_first_string   ", ["prefix", "prefixes", "prefixation"], "prefix"),
+        ("partial_match         ", ["abc", "abcd", "ab"], "ab"),
+        ("empty_list            ", [], ""),
     ],
 )
-def testLongestCommonPrefix(strs, expected):
+def testLongestCommonPrefix(name, strs, expected):
     solution = Solution()
-    assert solution.longestCommonPrefix(strs) == expected
+    assert solution.longestCommonPrefix(strs) == expected, name

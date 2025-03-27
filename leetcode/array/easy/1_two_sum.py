@@ -42,15 +42,15 @@ class Solution:
 
 
 @pytest.mark.parametrize(
-    "nums, target, expected",
+    "name, nums, target, expected",
     [
-        ([2, 7, 11, 15], 9, [0, 1]),  # Basic case
-        ([3, 2, 4], 6, [1, 2]),  # Case with non-adjacent elements
-        ([3, 3], 6, [0, 1]),  # Case with duplicate elements
-        ([1, 2, 3, 4, 5], 8, [2, 4]),  # Case with larger list
-        ([5, 5, 5], 10, [0, 1]),  # Case with repeated elements
+        ("basic_case        ", [2, 7, 11, 15], 9, [0, 1]),
+        ("non_adjacent      ", [3, 2, 4], 6, [1, 2]),
+        ("duplicate_elements", [3, 3], 6, [0, 1]),
+        ("larger_list       ", [1, 2, 3, 4, 5], 8, [2, 4]),
+        ("repeated_elements ", [5, 5, 5], 10, [0, 1]),
     ],
 )
-def testTwoSum(nums, target, expected):
+def testTwoSum(name, nums, target, expected):
     solution = Solution()
-    assert solution.twoSum(nums, target) == expected
+    assert solution.twoSum(nums, target) == expected, name

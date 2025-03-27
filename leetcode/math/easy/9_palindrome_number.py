@@ -41,19 +41,18 @@ class Solution:
 
 
 @pytest.mark.parametrize(
-    "test,expected",
+    "name,test,expected",
     [
-        (121, True),  # Palindrome number
-        (-121, False),  # Negative number, not a palindrome
-        (10, False),  # Number with different first and last digits
-        (12321, True),  # Odd-length palindrome number
-        (123321, True),  # Even-length palindrome number
-        (0, True),  # Zero is a palindrome
-        (1001, True),  # Palindrome with zeros in the middle
-        (100, False),  # Number ending with zero, not a palindrome
+        ("Palindrome Number                             ", 121, True),
+        ("Negative number, not a palindrome             ", -121, False),
+        ("Number with different first and last digits   ", 10, False),
+        ("Odd-length palindrome number                  ", 12321, True),
+        ("Even-length palindrome number                 ", 123321, True),
+        ("Zero is a palindrome                          ", 0, True),
+        ("Palindrome with zeros in the middle           ", 1001, True),
+        ("Number ending with zero, not a palindrome     ", 100, False),
     ],
 )
-def testIsPalindrome(test, expected):
+def testIsPalindrome(name, test, expected):
     solution = Solution()
-    # Test cases for positive scenarios
-    assert solution.isPalindrome(test) is expected
+    assert solution.isPalindrome(test) is expected, name

@@ -34,27 +34,27 @@ class Solution:
 
 # @lc code=end
 @pytest.mark.parametrize(
-    "s, expected",
+    "name,s,expected",
     [
-        ("III", 3),  # Basic case
-        ("IV", 4),  # Case with subtraction
-        ("IX", 9),  # Case with subtraction
-        ("LVIII", 58),  # Case with multiple symbols
-        ("MCMXCIV", 1994),  # Case with subtraction and multiple symbols
-        ("I", 1),  # Smallest Roman numeral
-        ("MMMCMXCIX", 3999),  # Largest valid Roman numeral
-        ("XL", 40),  # Subtraction case with L
-        ("XC", 90),  # Subtraction case with C
-        ("CD", 400),  # Subtraction case with D
-        ("CM", 900),  # Subtraction case with M
-        ("MMXXV", 2025),  # Mixed case
-        ("DCCC", 800),  # Repeated symbols
-        ("CCCLXV", 365),  # Random valid Roman numeral
-        ("MDCLXVI", 1666),  # Random valid Roman numeral
-        ("MCMXLV", 1945),  # Random valid Roman numeral
-        ("MMXIX", 2019),  # Random valid Roman numeral
+        ("basic_case           ", "III", 3),
+        ("subtraction_case_IV  ", "IV", 4),
+        ("subtraction_case_IX  ", "IX", 9),
+        ("multiple_symbols     ", "LVIII", 58),
+        ("complex_case         ", "MCMXCIV", 1994),
+        ("smallest_roman       ", "I", 1),
+        ("largest_roman        ", "MMMCMXCIX", 3999),
+        ("subtraction_L        ", "XL", 40),
+        ("subtraction_C        ", "XC", 90),
+        ("subtraction_D        ", "CD", 400),
+        ("subtraction_M        ", "CM", 900),
+        ("mixed_case           ", "MMXXV", 2025),
+        ("repeated_symbols     ", "DCCC", 800),
+        ("random_case_1        ", "CCCLXV", 365),
+        ("random_case_2        ", "MDCLXVI", 1666),
+        ("random_case_3        ", "MCMXLV", 1945),
+        ("random_case_4        ", "MMXIX", 2019),
     ],
 )
-def testRomanToInt(s, expected):
+def testRomanToInt(name, s, expected):
     solution = Solution()
-    assert solution.romanToInt(s) == expected
+    assert solution.romanToInt(s) == expected, name

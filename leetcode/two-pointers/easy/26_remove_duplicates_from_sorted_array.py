@@ -27,7 +27,16 @@ class Solution:
     """
 
     def removeDuplicates(self, nums: List[int]) -> int:
-        return 0
+        if not nums:
+            return 0
+
+        write_index = 1  # Index to write the next unique element
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                nums[write_index] = nums[i]
+                write_index += 1
+
+        return write_index
 
 
 # @lc code=end
@@ -47,5 +56,4 @@ class Solution:
 def test_remove_duplicates(name, nums, expected_length, expected_nums):
     solution = Solution()
     length = solution.removeDuplicates(nums)
-    assert length == expected_length
-    assert nums[:length] == expected_nums, name
+    assert length == expected_length and nums[:length] == expected_nums, name

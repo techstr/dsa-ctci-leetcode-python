@@ -1,4 +1,4 @@
-pylint
 pytest
+pytest-timeout
 ipytest
 ipywidgets

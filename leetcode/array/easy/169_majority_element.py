@@ -25,16 +25,40 @@ class Solution:
         int: The majority element in the list.
     """
 
-    # Brute-force approach
+    # # Brute-force approach
+    # def majorityElement(self, nums: List[int]) -> int:
+    #     memoize = {}
+    #     for num in nums:
+    #         memoize[num] = memoize[num] + 1 if num in memoize else 1
+    #     max_num = nums[0]
+    #     for key, value in memoize.items():
+    #         if value > memoize[max_num]:
+    #             max_num = key
+    #     return max_num
+    ## Best solution Boyer-Moore Voting Algorithm
     def majorityElement(self, nums: List[int]) -> int:
-        memoize = {}
+        candidate = None
+        count = 0
+
+        # Phase 1: Find a candidate for the majority element
         for num in nums:
-            memoize[num] = memoize[num] + 1 if num in memoize else 1
-        max_num = nums[0]
-        for key, value in memoize.items():
-            if value > memoize[max_num]:
-                max_num = key
-        return max_num
+            if count == 0:
+                candidate = num
+            count += 1 if num == candidate else -1
+
+        # Phase 2: Verify the candidate (optional if the problem guarantees a majority element)
+        return candidate
+
+    # # Brute-force approach
+    # def majorityElement(self, nums: List[int]) -> int:
+    #     memoize = {}
+    #     for num in nums:
+    #         memoize[num] = memoize[num] + 1 if num in memoize else 1
+    #     max_num = nums[0]
+    #     for key, value in memoize.items():
+    #         if value > memoize[max_num]:
+    #             max_num = key
+    #     return max_num
 
     ## Divide-and-conquer approach
     # def majorityElement(self, nums: List[int]) -> int:

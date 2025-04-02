@@ -1,1 +1,0 @@
-/Users/issac/GIT/python-study/leetcode/stack/easy/20_valid_parentheses.py

@@ -1,1 +1,0 @@
-/Users/issac/GIT/python-study/leetcode/two-pointers/easy/26_remove_duplicates_from_sorted_array.py

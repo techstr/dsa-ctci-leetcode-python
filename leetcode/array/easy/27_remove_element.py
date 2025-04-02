@@ -1,1 +1,0 @@
-/Users/issac/GIT/python-study/leetcode/two-pointers/easy/27_remove_element.py

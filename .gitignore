@@ -1,5 +1,5 @@
 # Books
-dsa/dsa.pdf
+books/*.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

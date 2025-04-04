@@ -12,7 +12,7 @@ class Solution:
     """
 
     def method(self, input_data: List[int]) -> bool:
-        return True if input_data > 0 else False
+        return True if input_data else False
 
 
 @pytest.mark.parametrize(

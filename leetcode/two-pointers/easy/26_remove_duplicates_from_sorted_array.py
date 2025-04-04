@@ -7,6 +7,7 @@
 
 # @lc code=start
 from typing import List
+
 import pytest
 
 
@@ -43,17 +44,18 @@ class Solution:
 
 
 @pytest.mark.parametrize(
-    "name, nums, expected_length, expected_nums",
+    "nums, expected_length, expected_nums",
     [
-        ("basic_case        ", [1, 1, 2], 2, [1, 2]),
-        ("larger_array      ", [0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5, [0, 1, 2, 3, 4]),
-        ("no_duplicates     ", [1, 2, 3], 3, [1, 2, 3]),
-        ("all_same          ", [1, 1, 1, 1], 1, [1]),
-        ("empty_array       ", [], 0, []),
-        ("single_element    ", [1], 1, [1]),
+        ([1, 1, 2], 2, [1, 2]),  # Basic case with duplicates
+        ([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5, [0, 1, 2, 3, 4]),  # Multiple duplicates
+        ([1, 2, 3, 4, 5], 5, [1, 2, 3, 4, 5]),  # No duplicates
+        ([1, 1, 1, 1, 1], 1, [1]),  # All elements are the same
+        ([], 0, []),  # Empty list
+        ([1], 1, [1]),  # Single element
     ],
 )
-def test_remove_duplicates(name, nums, expected_length, expected_nums):
+def test_remove_duplicates(nums, expected_length, expected_nums):
     solution = Solution()
     length = solution.removeDuplicates(nums)
-    assert length == expected_length and nums[:length] == expected_nums, name
+    assert length == expected_length
+    assert nums[:length] == expected_nums  # Adding a delay of 1 second

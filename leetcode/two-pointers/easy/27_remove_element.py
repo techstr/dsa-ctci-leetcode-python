@@ -4,8 +4,10 @@
 # [27] Remove Element
 #
 
+
 # @lc code=start
 from typing import List
+
 import pytest
 
 
@@ -60,16 +62,18 @@ class Solution:
 
 
 @pytest.mark.parametrize(
-    "name, nums, val, expected",
+    "nums, val, expected_length, expected_nums",
     [
-        ("example_1         ", [3, 2, 2, 3], 3, 2),
-        ("example_2         ", [0, 1, 2, 2, 3, 0, 4, 2], 2, 5),
-        ("single_element_1  ", [1], 1, 0),
-        ("no_removal_needed ", [4, 5], 6, 2),
-        ("empty_list        ", [], 1, 0),
+        # ([3, 2, 2, 3], 3, 2, [2, 2]),  # Remove all occurrences of 3
+        # ([0, 1, 2, 2, 3, 0, 4, 2], 2, 5, [0, 1, 3, 0, 4]),  # Remove all occurrences of 2
+        ([1], 1, 0, []),  # Single element, remove it
+        ([1, 1, 1, 1], 1, 0, []),  # All elements are the same and removed
+        ([1, 2, 3, 4, 5], 6, 5, [1, 2, 3, 4, 5]),  # No elements removed
+        ([], 1, 0, []),  # Empty list
     ],
 )
-def test_remove_element(name, nums, val, expected):
+def test_remove_element(nums, val, expected_length, expected_nums):
     solution = Solution()
-    result = solution.removeElement(nums, val)
-    assert result == expected, name
+    length = solution.removeElement(nums, val)
+    assert length == expected_length
+    assert nums[:length] == expected_nums

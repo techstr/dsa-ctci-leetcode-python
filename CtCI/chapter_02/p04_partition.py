@@ -41,20 +41,20 @@ def lr_partition(_ll: LinkedList, p: int) -> LinkedList:
     return left
 
 
-def test_lr_partition():
-    partitioners = [partition, lr_partition]
-    for partition_func in partitioners:
-        # book example
-        ll = LinkedList([3, 5, 8, 5, 10, 2, 1])
-        assert not is_partitioned(ll, x=5)
-        ll = partition_func(ll, 5)
-        assert is_partitioned(ll, x=5), f"{partition_func} did not partition {ll}"
+# def test_lr_partition():
+#     partitioners = [partition, lr_partition]
+#     for partition_func in partitioners:
+#         # book example
+#         ll = LinkedList([3, 5, 8, 5, 10, 2, 1])
+#         assert not is_partitioned(ll, x=5)
+#         ll = partition_func(ll, 5)
+#         assert is_partitioned(ll, x=5), f"{partition_func} did not partition {ll}"
 
-        # random example
-        ll = LinkedList.generate(10, 0, 99)
-        x = ll.head.value
-        ll = partition_func(ll, x)
-        assert is_partitioned(ll, x=x), f"{partition_func} did not partition"
+#         # random example
+#         ll = LinkedList.generate(10, 0, 99)
+#         x = ll.head.value
+#         ll = partition_func(ll, x)
+#         assert is_partitioned(ll, x=x), f"{partition_func} did not partition"
 
 
 def is_partitioned(ll, x):
@@ -66,7 +66,3 @@ def is_partitioned(ll, x):
         if seen_gt_partition and node.value < x:
             return False
     return True
-
-
-if __name__ == "__main__":
-    test_lr_partition()

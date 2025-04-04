@@ -1,5 +1,4 @@
 pytest
-pytest-timeout
 ipytest
 numpy
 pandas

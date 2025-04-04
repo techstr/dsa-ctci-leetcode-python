@@ -6,6 +6,7 @@
 
 # @lc code=start
 from typing import List
+
 import pytest
 
 
@@ -36,21 +37,23 @@ class Solution:
             if target - num in memoized:
                 return [memoized[target - num], i]
             memoized[num] = i
+        return []
 
 
 # @lc code=end
 
 
 @pytest.mark.parametrize(
-    "name, nums, target, expected",
+    "nums, target, expected",
     [
-        ("basic_case        ", [2, 7, 11, 15], 9, [0, 1]),
-        ("non_adjacent      ", [3, 2, 4], 6, [1, 2]),
-        ("duplicate_elements", [3, 3], 6, [0, 1]),
-        ("larger_list       ", [1, 2, 3, 4, 5], 8, [2, 4]),
-        ("repeated_elements ", [5, 5, 5], 10, [0, 1]),
+        ([2, 7, 11, 15], 9, [0, 1]),  # Basic test case
+        ([3, 2, 4], 6, [1, 2]),  # Test case with non-adjacent indices
+        ([3, 3], 6, [0, 1]),  # Test case with duplicate numbers
+        ([1, 2, 3, 4, 5], 8, [2, 4]),  # Test case with larger array
+        ([5, 75, 25], 100, [1, 2]),  # Test case with larger numbers
+        ([1, 2, 3], 7, []),  # Test case with no solution
     ],
 )
-def testTwoSum(name, nums, target, expected):
+def test_two_sum(nums, target, expected):
     solution = Solution()
-    assert solution.twoSum(nums, target) == expected, name
+    assert solution.twoSum(nums, target) == expected

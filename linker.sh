@@ -1,25 +1,32 @@
 #!/bin/bash
 
 # Check if the correct number of arguments is provided
-if [ "$#" -ne 4 ]; then
-  echo "Usage: $0 <file_name> <difficulty> <source> <comma_separated_destinations>"
+if [ "$#" -ne 5 ]; then
+  echo "Usage: $0 <file_name> <lesson> <difficulty> <source> <comma_separated_destinations>"
   exit 1
 fi
 
 # Assign arguments to variables
 file_name=$1
-difficulty=$2
-source=$3
-destinations=$4
+lesson=$2
+difficulty=$3
+source=$4
+destinations=$5
 
 # Define the source path
-source_path="leetcode/$source/$difficulty/$file_name"
+source_path="$lesson/$source/$difficulty/$file_name"
+
+
+if [ ! -f "$source_path" ]; then
+  echo "Source file does not exist: $source_path"
+  exit 1
+fi
 
 # Loop through each destination
 IFS=',' read -ra dest_array <<< "$destinations"
 for destination in "${dest_array[@]}"; do
   # Define the destination path
-  dest_dir="leetcode/$destination/$difficulty"
+  dest_dir="$lesson/$destination/$difficulty"
   dest_path="$dest_dir/$file_name"
 
   # Create the destination directory if it doesn't exist

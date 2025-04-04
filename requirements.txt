@@ -1,4 +1,5 @@
 pytest
 pytest-timeout
 ipytest
-ipywidgets
+numpy
+pandas

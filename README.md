@@ -1,6 +1,6 @@
 # DSA, CTCI, and LeetCode Workbook
 
-![Tests](https://github.com/issac/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml/badge.svg)
+[![Tests](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml)
 
 This repository serves as a comprehensive workbook for practicing problems from:
 - **Cracking the Coding Interview** by Gayle Laakmann McDowell

@@ -1,5 +1,7 @@
 # DSA, CTCI, and LeetCode Workbook
 
+![Tests](https://github.com/issac/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml/badge.svg)
+
 This repository serves as a comprehensive workbook for practicing problems from:
 - **Cracking the Coding Interview** by Gayle Laakmann McDowell
 - **Data Structures and Algorithms Made Easy** by Narasimha Karumanchi

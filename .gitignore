@@ -127,5 +127,6 @@ dmypy.json
 # IDEs
 .idea/
 *.swp
+.vscode/settings.json
 
 *.DS_Store

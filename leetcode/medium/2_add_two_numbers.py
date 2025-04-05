@@ -1,4 +1,5 @@
 from typing import Optional
+
 import pytest
 
 #
@@ -85,6 +86,8 @@ def linked_list_to_list(node):
     return result
 
 
+@pytest.mark.linked_list
+@pytest.mark.math
 @pytest.mark.parametrize(
     "l1, l2, expected",
     [

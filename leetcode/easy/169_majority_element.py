@@ -27,11 +27,11 @@ class Solution:
 
     ## Best solution Boyer-Moore Voting Algorithm
     def majorityElement(self, nums: List[int]) -> int:
-        candidate = None
-        count = 0
+        candidate = nums[0]  # Initialize with first element since list is guaranteed non-empty
+        count = 1
 
         # Phase 1: Find a candidate for the majority element
-        for num in nums:
+        for num in nums[1:]:
             if count == 0:
                 candidate = num
             count += 1 if num == candidate else -1
@@ -102,6 +102,9 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.array
+@pytest.mark.divide_and_conquer
+@pytest.mark.bit_manipulation
 @pytest.mark.parametrize(
     "nums, expected",
     [

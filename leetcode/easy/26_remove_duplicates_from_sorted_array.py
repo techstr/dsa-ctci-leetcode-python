@@ -43,6 +43,8 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.array
+@pytest.mark.two_pointers
 @pytest.mark.parametrize(
     "nums, expected_length, expected_nums",
     [

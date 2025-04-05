@@ -40,6 +40,7 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.math
 @pytest.mark.parametrize(
     "name,test,expected",
     [

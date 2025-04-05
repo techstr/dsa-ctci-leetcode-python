@@ -7,6 +7,7 @@
 
 # @lc code=start
 from typing import List
+
 import pytest
 
 
@@ -38,6 +39,8 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.array
+@pytest.mark.binary_search
 @pytest.mark.parametrize(
     "nums, target, expected",
     [

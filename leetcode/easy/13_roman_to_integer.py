@@ -33,28 +33,37 @@ class Solution:
 
 
 # @lc code=end
+
+
+@pytest.mark.math
+@pytest.mark.string
 @pytest.mark.parametrize(
-    "name,s,expected",
+    "s,expected",
     [
-        ("basic_case           ", "III", 3),
-        ("subtraction_case_IV  ", "IV", 4),
-        ("subtraction_case_IX  ", "IX", 9),
-        ("multiple_symbols     ", "LVIII", 58),
-        ("complex_case         ", "MCMXCIV", 1994),
-        ("smallest_roman       ", "I", 1),
-        ("largest_roman        ", "MMMCMXCIX", 3999),
-        ("subtraction_L        ", "XL", 40),
-        ("subtraction_C        ", "XC", 90),
-        ("subtraction_D        ", "CD", 400),
-        ("subtraction_M        ", "CM", 900),
-        ("mixed_case           ", "MMXXV", 2025),
-        ("repeated_symbols     ", "DCCC", 800),
-        ("random_case_1        ", "CCCLXV", 365),
-        ("random_case_2        ", "MDCLXVI", 1666),
-        ("random_case_3        ", "MCMXLV", 1945),
-        ("random_case_4        ", "MMXIX", 2019),
+        # Basic cases
+        ("III", 3),  # Simple addition
+        ("IV", 4),  # Subtraction case - I before V
+        ("IX", 9),  # Subtraction case - I before X
+        # Medium complexity cases
+        ("LVIII", 58),  # L=50, V=5, III=3
+        ("MCMXCIV", 1994),  # M=1000, CM=900, XC=90, IV=4
+        # Edge cases
+        ("I", 1),  # Smallest roman numeral
+        ("MMMCMXCIX", 3999),  # Largest roman numeral in common usage
+        # Subtraction cases
+        ("XL", 40),  # X before L
+        ("XC", 90),  # X before C
+        ("CD", 400),  # C before D
+        ("CM", 900),  # C before M
+        # Various combinations
+        ("MMXXV", 2025),  # Simple addition case
+        ("DCCC", 800),  # Repeated symbols
+        ("CCCLXV", 365),  # Year representation
+        ("MDCLXVI", 1666),  # Ascending symbols
+        ("MCMXLV", 1945),  # World War II end year
+        ("MMXIX", 2019),  # Recent year
     ],
 )
-def testRomanToInt(name, s, expected):
+def testRomanToInt(s, expected):
     solution = Solution()
-    assert solution.romanToInt(s) == expected, name
+    assert solution.romanToInt(s) == expected

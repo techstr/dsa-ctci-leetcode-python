@@ -77,20 +77,21 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.string
 @pytest.mark.parametrize(
-    "name, strs, expected",
+    "strs, expected",  # Removed "name" parameter for simplicity
     [
-        ("common_prefix         ", ["flower", "flow", "flight"], "fl"),
-        ("no_common_prefix      ", ["dog", "racecar", "car"], ""),
-        ("long_common_prefix    ", ["interspecies", "interstellar", "interstate"], "inters"),
-        ("single_string         ", ["a"], "a"),
-        ("one_empty_string      ", ["", "b"], ""),
-        ("identical_strings     ", ["c", "c"], "c"),
-        ("entire_first_string   ", ["prefix", "prefixes", "prefixation"], "prefix"),
-        ("partial_match         ", ["abc", "abcd", "ab"], "ab"),
-        ("empty_list            ", [], ""),
+        (["flower", "flow", "flight"], "fl"),  # Common prefix "fl"
+        (["dog", "racecar", "car"], ""),  # No common prefix
+        (["interspecies", "interstellar", "interstate"], "inters"),  # Long common prefix "inters"
+        (["a"], "a"),  # Single string, prefix is the string itself
+        (["", "b"], ""),  # One empty string, no common prefix
+        (["c", "c"], "c"),  # Identical strings, prefix is the string itself
+        (["prefix", "prefixes", "prefixation"], "prefix"),  # Entire first string is the prefix
+        (["abc", "abcd", "ab"], "ab"),  # Partial match "ab"
+        ([], ""),  # Empty list, no common prefix
     ],
 )
-def testLongestCommonPrefix(name, strs, expected):
+def testLongestCommonPrefix(strs, expected):
     solution = Solution()
-    assert solution.longestCommonPrefix(strs) == expected, name
+    assert solution.longestCommonPrefix(strs) == expected

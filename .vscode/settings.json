@@ -2,18 +2,17 @@
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "python.testing.pytestArgs": [
-    "leetcode"
+    "."
   ],
   "python.experiments.optInto": [
     "pythonDiscoveryUsingWorkers",
     "pythonTestAdapter"
   ],
-  // "python.analysis.typeCheckingMode": "basic",
-  // "python.analysis.autoSearchPaths": true,
-  // "python.analysis.useLibraryCodeForTypes": true,
-  // "python.analysis.diagnosticMode": "workspace",
-  // "python.analysis.indexing": true,
-  // "python.analysis.indexingInterval": 1000,
-  // "python.analysis.autoImportCompletions": true,
-  // "python.analysis.completeFunctionCalls": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.indexing": true,
+  "python.analysis.autoImportCompletions": true,
+  "github.copilot.editor.enableAutoCompletions": false,
 }

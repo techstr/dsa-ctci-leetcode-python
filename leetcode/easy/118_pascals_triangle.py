@@ -63,6 +63,7 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.array
 @pytest.mark.parametrize(
     "numRows, expected",
     [

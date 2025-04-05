@@ -6,6 +6,7 @@
 
 # @lc code=start
 from typing import List
+
 import pytest
 
 
@@ -73,6 +74,9 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.array
+@pytest.mark.binary_search
+@pytest.mark.divide_and_conquer
 @pytest.mark.parametrize(
     "name, nums1, nums2, expected",
     [

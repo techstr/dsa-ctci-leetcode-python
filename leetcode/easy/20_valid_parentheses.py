@@ -63,22 +63,26 @@ class Solution:
 
 
 # @lc code=end
+
+
+@pytest.mark.string
+@pytest.mark.stack
 @pytest.mark.parametrize(
-    "name,s,expected",
+    "s,expected",
     [
-        ("Empty string              ", "", True),
-        ("Simple valid parentheses  ", "()", True),
-        ("Mixed valid parentheses   ", "()[]{}", True),
-        ("Mismatched parentheses    ", "(]", False),
-        ("Incorrectly nested        ", "([)]", False),
-        ("Correctly nested          ", "{[]}", True),
-        ("Single open parenthesis   ", "(", False),
-        ("Single close parenthesis  ", ")", False),
-        ("Multiple open             ", "{[(", False),
-        ("Complex valid             ", "{[()]}", True),
-        ("Extra closing             ", "{[()]}]", False),
+        ("", True),  # Empty string
+        ("()", True),  # Simple valid parentheses
+        ("()[]{}", True),  # Mixed valid parentheses
+        ("(]", False),  # Mismatched parentheses
+        ("([)]", False),  # Incorrectly nested
+        ("{[]}", True),  # Correctly nested
+        ("(", False),  # Single open parenthesis
+        (")", False),  # Single close parenthesis
+        ("{[(", False),  # Multiple open
+        ("{[()]}", True),  # Complex valid
+        ("{[()]}]", False),  # Extra closing
     ],
 )
-def testIsValid(name, s, expected):
+def testIsValid(s, expected):
     solution = Solution()
-    assert solution.isValid(s) == expected, name
+    assert solution.isValid(s) == expected

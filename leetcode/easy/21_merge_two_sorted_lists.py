@@ -103,21 +103,22 @@ def linked_list_to_list(head):
     return result
 
 
+@pytest.mark.linked_list
 @pytest.mark.parametrize(
-    "name, list1, list2, expected",
+    "list1, list2, expected",
     [
-        ("Both empty    ", [], [], []),
-        ("One empty 1   ", [1, 2, 4], [], [1, 2, 4]),
-        ("One empty 2   ", [], [1, 3, 4], [1, 3, 4]),
-        ("Non-empty     ", [1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]),
-        ("Interleaved   ", [1, 3, 5], [2, 4, 6], [1, 2, 3, 4, 5, 6]),
-        ("Duplicates    ", [1, 1, 1], [1, 1, 1], [1, 1, 1, 1, 1, 1]),
+        ([], [], []),  # Both input lists are empty
+        ([1, 2, 4], [], [1, 2, 4]),  # First list is non-empty, second is empty
+        ([], [1, 3, 4], [1, 3, 4]),  # First list is empty, second is non-empty
+        ([1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]),  # Both lists are non-empty with overlapping values
+        ([1, 3, 5], [2, 4, 6], [1, 2, 3, 4, 5, 6]),  # Both lists are interleaved
+        ([1, 1, 1], [1, 1, 1], [1, 1, 1, 1, 1, 1]),  # Both lists contain duplicate values
     ],
 )
-def test_merge_two_sorted_lists(name, list1, list2, expected):
+def test_merge_two_sorted_lists(list1, list2, expected):
     solution = Solution()
     l1 = list_to_linked_list(list1)
     l2 = list_to_linked_list(list2)
     merged_head = solution.mergeTwoLists(l1, l2)
     result = linked_list_to_list(merged_head)
-    assert result == expected, name
+    assert result == expected

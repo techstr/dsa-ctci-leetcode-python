@@ -1,1 +1,0 @@
-../../array/easy/35_search_insert_position.py

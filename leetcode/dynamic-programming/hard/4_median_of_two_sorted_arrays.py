@@ -1,1 +1,0 @@
-../../array/hard/4_median_of_two_sorted_arrays.py

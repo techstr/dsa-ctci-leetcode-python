@@ -1,6 +1,22 @@
-# Study Python Project
+# DSA, CTCI, and LeetCode Workbook
 
-This repository contains Python code for leetcode problems and data structures. Included Jupyter Notebooks for easy coding and testing on single file. All unit test cases are based on pytest. Follow the instructions below to set up your development environment using Visual Studio Code (VS Code) and create a Python virtual environment.
+This repository serves as a comprehensive workbook for practicing problems from:
+- **Cracking the Coding Interview** by Gayle Laakmann McDowell
+- **Data Structures and Algorithms Made Easy** by Narasimha Karumanchi
+- **LeetCode** problems
+
+It includes Python implementations of various data structures, algorithms, and coding problems, along with Jupyter Notebooks for interactive learning and testing.
+
+---
+
+## Repository Structure
+
+The repository is organized into the following sections:
+
+- **`ctci/`**: Solutions to problems from "Cracking the Coding Interview," organized by chapters.
+- **`dsa/`**: Implementations of data structures and algorithms from Narasimha Karumanchi's book.
+- **`leetcode/`**: Solutions to LeetCode problems categorized by difficulty (easy, medium, hard).
+- **`notebooks/`**: Jupyter Notebooks for interactive exploration of concepts like arrays, linked lists, recursion, etc.
 
 ---
 
@@ -14,117 +30,60 @@ Before starting, ensure you have the following installed on your system:
 
 ---
 
-## Setting Up VS Code for Python Development
+## Setting Up the Development Environment
 
-1. **Install the Python Extension**:
-   - Open VS Code.
-   - Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux).
-   - Search for "Python" and install the official extension by Microsoft.
-
-2. **Select the Python Interpreter**:
-   - Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux) to open the Command Palette.
-   - Type `Python: Select Interpreter` and select it.
-   - Choose the Python interpreter you want to use (e.g., the one installed on your system or a virtual environment).
-
-3. **Install Additional Extensions (Optional)**:
-   - Install extensions like `Pylance` for better IntelliSense and `Black Formatter` for code formatting.
-
----
-
-## Creating a Python Virtual Environment
-
-1. **Open the Terminal in VS Code**:
-   - Go to the Terminal menu and select `New Terminal` or press ``Cmd+` `` (Mac) or ``Ctrl+` `` (Windows/Linux).
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd dsa-ctci-leetcode-python
+   ```
 
 2. **Create a Virtual Environment**:
-   - Run the following command in the terminal:
-     ```bash
-     python -m venv venv
-     ```
-   - This will create a virtual environment in a folder named `venv`.
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On macOS/Linux
+   venv\Scripts\activate   # On Windows
+   ```
 
-3. **Activate the Virtual Environment**:
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-4. **Verify the Virtual Environment**:
-   - After activation, the terminal prompt should show `(venv)` at the beginning.
-   - Run the following command to verify:
-     ```bash
-     python --version
-     ```
-
----
-
-## Installing Dependencies from [requirements.txt](http://_vscodecontentref_/1)
-
-1. **Ensure the Virtual Environment is Activated**:
-   - Follow the steps above to activate the virtual environment.
-
-2. **Install Dependencies**:
-   - Run the following command in the terminal:
-     ```bash
-     pip install -r requirements.txt
-     ```
-
-3. **Verify Installation**:
-   - Run the following command to list installed packages:
-     ```bash
-     pip list
-     ```
+4. **Verify Setup**:
+   ```bash
+   python --version
+   pip list
+   ```
 
 ---
 
 ## Running the Project
 
 1. **Activate the Virtual Environment**:
-   - Ensure the virtual environment is activated.
+   ```bash
+   source venv/bin/activate  # On macOS/Linux
+   venv\Scripts\activate   # On Windows
+   ```
 
 2. **Run Python Scripts**:
-   - Use the terminal or VS Code's Run feature to execute Python scripts:
-     ```bash
-     python script_name.py
-     ```
+   ```bash
+   python <script_path>
+   ```
 
 3. **Run Tests**:
-   - If the project includes tests, you can run them using `pytest`:
-     ```bash
-     pytest
-     ```
+   ```bash
+   pytest
+   ```
 
 ---
 
-## Additional Notes
+## Contributing
 
-- **Formatting Code**:
-  - Use the `Black` formatter to format your code. You can configure it in VS Code or run it manually:
-    ```bash
-    black .
-    ```
-
-- **Linting**:
-  - Use `pylint` or `flake8` for linting:
-    ```bash
-    pylint script_name.py
-    ```
-
-- **Deactivating the Virtual Environment**:
-  - To deactivate the virtual environment, run:
-    ```bash
-    deactivate
-    ```
+Contributions are welcome! Feel free to submit pull requests for improvements or additional solutions.
 
 ---
 
-## Troubleshooting
+## License
 
-- If VS Code does not detect the virtual environment, restart VS Code and reselect the Python interpreter (`Python: Select Interpreter`).
-- Ensure [requirements.txt](http://_vscodecontentref_/2) is up-to-date with all necessary dependencies by running:
-  ```bash
-  pip freeze > requirements.txt
+This repository is for educational purposes only. Please respect the copyrights of the original authors of the books and problems.

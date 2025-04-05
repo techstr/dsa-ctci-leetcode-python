@@ -26,10 +26,10 @@ jobs:
     - name: Extract version from __init__.py
       id: get_version
       run: |
-        version=$(grep -oP "(?<=__version__ = ')[^']+" __init__.py)
-        echo "::set-output name=version::$version"
+        version=$(awk -F'["\047]' '/__version__/ {print $2}' __init__.py)
+        echo "version=$version" >> $GITHUB_ENV
 
     - name: Run tests
-      run: pytest --version
+      run: pytest --disable-warnings
       env:
-        VERSION: ${{ steps.get_version.outputs.version }}
+        VERSION: ${{ env.version }}

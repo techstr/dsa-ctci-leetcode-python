@@ -11,9 +11,7 @@ class _TestStrip:
 
 
 class World:
-    def __init__(
-        self, num_test_strips: int, num_bottles: int, poisoned_bottle_num: int
-    ) -> None:
+    def __init__(self, num_test_strips: int, num_bottles: int, poisoned_bottle_num: int) -> None:
         self._num_test_strips = num_test_strips
         self._test_strips = [_TestStrip() for i in range(num_test_strips)]
         self._num_bottles = num_bottles
@@ -46,10 +44,7 @@ class World:
     def positive_test_strips(self) -> List[int]:
         res: List[int] = []
         for test_strip_num, test_strip in enumerate(self._test_strips):
-            if (
-                test_strip.has_poison
-                and self.day - test_strip.day_poisoned >= DAYS_FOR_RESULT
-            ):
+            if test_strip.has_poison and self.day - test_strip.day_poisoned >= DAYS_FOR_RESULT:
                 res.append(test_strip_num)
         return res
 
@@ -65,17 +60,5 @@ def find_poison(world: World) -> int:
 
 def test_find_poison():
     poisoned_bottle_num = random.randrange(1000)
-    world = World(
-        num_bottles=1000, num_test_strips=10, poisoned_bottle_num=poisoned_bottle_num
-    )
+    world = World(num_bottles=1000, num_test_strips=10, poisoned_bottle_num=poisoned_bottle_num)
     assert find_poison(world) == poisoned_bottle_num
-    return poisoned_bottle_num, world.day
-
-
-def example():
-    poisoned_bottle_num, days = test_find_poison()
-    print("Found poison in bottle number", poisoned_bottle_num, "in", days, "days.")
-
-
-if __name__ == "__main__":
-    example()

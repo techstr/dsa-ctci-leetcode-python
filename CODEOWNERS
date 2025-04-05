@@ -1,0 +1,16 @@
+# This is a CODEOWNERS file. It defines the owners of the code in this repository.
+
+# Default owner for everything
+* @techstr
+
+# Specific owners for ctci folder
+ctci/ @techstr
+
+# Specific owners for dsa folder
+dsa/ @techstr
+
+# Specific owners for leetcode folder
+leetcode/ @techstr
+
+# Specific owners for notebooks folder
+notebooks/ @techstr

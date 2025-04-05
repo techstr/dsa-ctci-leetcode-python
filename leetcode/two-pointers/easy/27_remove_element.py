@@ -64,8 +64,8 @@ class Solution:
 @pytest.mark.parametrize(
     "nums, val, expected_length, expected_nums",
     [
-        # ([3, 2, 2, 3], 3, 2, [2, 2]),  # Remove all occurrences of 3
-        # ([0, 1, 2, 2, 3, 0, 4, 2], 2, 5, [0, 1, 3, 0, 4]),  # Remove all occurrences of 2
+        ([3, 2, 2, 3], 3, 2, [2, 2]),  # Remove all occurrences of 3
+        ([0, 1, 2, 2, 3, 0, 4, 2], 2, 5, [0, 1, 3, 0, 4]),  # Remove all occurrences of 2
         ([1], 1, 0, []),  # Single element, remove it
         ([1, 1, 1, 1], 1, 0, []),  # All elements are the same and removed
         ([1, 2, 3, 4, 5], 6, 5, [1, 2, 3, 4, 5]),  # No elements removed
@@ -74,6 +74,7 @@ class Solution:
 )
 def test_remove_element(nums, val, expected_length, expected_nums):
     solution = Solution()
-    length = solution.removeElement(nums, val)
+    nums_copy = nums.copy()
+    length = solution.removeElement(nums_copy, val)
     assert length == expected_length
-    assert nums[:length] == expected_nums
+    assert nums_copy[:length] == expected_nums

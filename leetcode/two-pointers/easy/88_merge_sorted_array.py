@@ -65,15 +65,17 @@ class Solution:
 @pytest.mark.parametrize(
     "nums1, m, nums2, n, expected",
     [
-        # ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),  # Basic merge
+        ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),  # Basic merge
         ([1], 1, [], 0, [1]),  # nums2 is empty
         ([0], 0, [1], 1, [1]),  # nums1 is empty
-        # ([2, 0], 1, [1], 1, [1, 2]),  # Single element merge
-        # ([4, 5, 6, 0, 0, 0], 3, [1, 2, 3], 3, [1, 2, 3, 4, 5, 6]),  # nums2 smaller
-        # ([1, 2, 4, 5, 6, 0], 5, [3], 1, [1, 2, 3, 4, 5, 6]),  # Insert in the middle
+        ([2, 0], 1, [1], 1, [1, 2]),  # Single element merge
+        ([4, 5, 6, 0, 0, 0], 3, [1, 2, 3], 3, [1, 2, 3, 4, 5, 6]),  # nums2 smaller
+        ([1, 2, 4, 5, 6, 0], 5, [3], 1, [1, 2, 3, 4, 5, 6]),  # Insert in the middle
     ],
 )
 def test_merge(nums1, m, nums2, n, expected):
     solution = Solution()
-    solution.merge(nums1, m, nums2, n)
-    assert nums1 == expected
+    nums1_copy = nums1.copy()  # Create a copy of nums1 to avoid in-place modification issues
+    nums2_copy = nums2.copy()
+    solution.merge(nums1_copy, m, nums2_copy, n)
+    assert nums1_copy == expected

@@ -47,15 +47,16 @@ class Solution:
     "nums, expected_length, expected_nums",
     [
         ([1, 1, 2], 2, [1, 2]),  # Basic case with duplicates
-        ([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5, [0, 1, 2, 3, 4]),  # Multiple duplicates
-        ([1, 2, 3, 4, 5], 5, [1, 2, 3, 4, 5]),  # No duplicates
         ([1, 1, 1, 1, 1], 1, [1]),  # All elements are the same
         ([], 0, []),  # Empty list
         ([1], 1, [1]),  # Single element
+        ([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5, [0, 1, 2, 3, 4]),  # Multiple duplicates
+        ([1, 2, 3, 4, 5], 5, [1, 2, 3, 4, 5]),  # No duplicates
     ],
 )
 def test_remove_duplicates(nums, expected_length, expected_nums):
     solution = Solution()
-    length = solution.removeDuplicates(nums)
+    nums_copy = nums.copy()  # Create a copy of the list to avoid in-place modification issues
+    length = solution.removeDuplicates(nums_copy)
     assert length == expected_length
-    assert nums[:length] == expected_nums  # Adding a delay of 1 second
+    assert nums_copy[:length] == expected_nums

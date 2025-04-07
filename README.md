@@ -22,6 +22,16 @@ The repository is organized into the following sections:
 
 ---
 
+## Documentation
+
+All wiki files are in the `docs/` folder. Refer to them for detailed information:
+
+- [How to Approach a LeetCode Problem](docs/how_to_approach_a_leetcode_problem.md)
+- [Adding Test Cases](docs/adding_test_cases.md)
+- [What is TDD?](docs/what_is_tdd.md)
+
+---
+
 ## Prerequisites
 
 Before starting, ensure you have the following installed on your system:

@@ -34,7 +34,7 @@ class Solution:
             reversed_half = reversed_half * 10 + x % 10
             x //= 10
 
-        return x == reversed_half or x == reversed_half // 10
+        return x in (reversed_half, reversed_half // 10)
 
 
 # @lc code=end

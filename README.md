@@ -1,6 +1,6 @@
 # DSA, CTCI, and LeetCode Workbook
 
-[![Tests](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml)
+[![Tests](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/python-tests.yml) [![CodeQL](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/techstr/dsa-ctci-leetcode-python/actions/workflows/github-code-scanning/codeql)
 
 This repository serves as a comprehensive workbook for practicing problems from:
 - **Cracking the Coding Interview** by Gayle Laakmann McDowell

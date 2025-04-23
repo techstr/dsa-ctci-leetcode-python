@@ -58,9 +58,6 @@ class Solution:
 # @lc code=end
 
 
-@pytest.mark.array
-@pytest.mark.hash_table
-@pytest.mark.math
 @pytest.mark.parametrize(
     "nums, expected",
     [

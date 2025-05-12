@@ -73,6 +73,7 @@ class Solution:
         Returns:
             List[int]: A list of integers representing the inorder traversal of the tree.
         """
+        # Stack-based approach
         result = []
         stack = []
         current = root
@@ -92,8 +93,37 @@ class Solution:
 
         return result
 
+        # Recursive approach
+        # result = []
+
+        # def traverse(node):
+        #     if node:
+        #         traverse(node.left)
+        #         result.append(node.val)
+        #         traverse(node.right)
+
+        # traverse(root)
+        # return result
+
 
 # @lc code=end
+
+
+@pytest.mark.parametrize(
+    "level_order, expected",
+    [
+        ([1, None, 2, 3], [1, 3, 2]),
+        ([1], [1]),
+        ([], []),
+        ([1, 2, 3, 4, 5, None, 8, None, None, 6, 7, 9], [4, 2, 6, 5, 7, 1, 3, 9, 8]),
+        ([1, 2, 3], [2, 1, 3]),
+        ([1, 2, None, 3], [3, 2, 1]),
+    ],
+)
+def test_inorder_traversal(level_order, expected):
+    tree = level_order_array_to_tree(level_order)
+    solution = Solution()
+    assert solution.inorderTraversal(tree) == expected
 
 
 def level_order_array_to_tree(level_order: List[Optional[int]]) -> Optional[TreeNode]:
@@ -126,20 +156,3 @@ def level_order_array_to_tree(level_order: List[Optional[int]]) -> Optional[Tree
             i += 1
 
     return root
-
-
-@pytest.mark.parametrize(
-    "level_order, expected",
-    [
-        ([1, None, 2, 3], [1, 3, 2]),
-        ([1], [1]),
-        ([], []),
-        ([1, 2, 3, 4, 5, None, 8, None, None, 6, 7, 9], [4, 2, 6, 5, 7, 1, 3, 9, 8]),
-        ([1, 2, 3], [2, 1, 3]),
-        ([1, 2, None, 3], [3, 2, 1]),
-    ],
-)
-def test_inorder_traversal(level_order, expected):
-    tree = level_order_array_to_tree(level_order)
-    solution = Solution()
-    assert solution.inorderTraversal(tree) == expected

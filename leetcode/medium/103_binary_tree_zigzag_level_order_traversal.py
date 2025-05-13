@@ -89,6 +89,22 @@ class Solution:
 # @lc code=end
 
 
+@pytest.mark.parametrize(
+    "level_order, expected",
+    [
+        ([3, 9, 20, None, None, 15, 7], [[3], [20, 9], [15, 7]]),
+        ([1], [[1]]),
+        ([], []),
+        ([1, 2, 3, 4, 5, 6, 7], [[1], [3, 2], [4, 5, 6, 7]]),
+        ([1, 2, None, 3, None, None, None], [[1], [2], [3]]),
+    ],
+)
+def test_zigzag_level_order(level_order, expected):
+    tree = level_order_array_to_tree(level_order)
+    solution = Solution()
+    assert solution.zigzagLevelOrder(tree) == expected
+
+
 def level_order_array_to_tree(level_order: List[Optional[int]]) -> Optional[TreeNode]:
     """
     Converts a level-order array representation of a binary tree to a TreeNode structure.
@@ -119,19 +135,3 @@ def level_order_array_to_tree(level_order: List[Optional[int]]) -> Optional[Tree
             i += 1
 
     return root
-
-
-@pytest.mark.parametrize(
-    "level_order, expected",
-    [
-        ([3, 9, 20, None, None, 15, 7], [[3], [20, 9], [15, 7]]),
-        ([1], [[1]]),
-        ([], []),
-        ([1, 2, 3, 4, 5, 6, 7], [[1], [3, 2], [4, 5, 6, 7]]),
-        ([1, 2, None, 3, None, None, None], [[1], [2], [3]]),
-    ],
-)
-def test_zigzag_level_order(level_order, expected):
-    tree = level_order_array_to_tree(level_order)
-    solution = Solution()
-    assert solution.zigzagLevelOrder(tree) == expected

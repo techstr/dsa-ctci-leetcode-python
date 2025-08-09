@@ -56,7 +56,16 @@ class Solution:
 # @lc code=end
 
 
-@pytest.mark.parametrize("stones, expected", [([2, 7, 4, 1, 8, 1], 1), ([1], 1), ([3, 3], 0), ([10, 4, 2, 10], 2), ([1, 1, 1, 1], 0)])
+@pytest.mark.parametrize(
+    "stones, expected",
+    [
+        ([2, 7, 4, 1, 8, 1], 1),
+        ([1], 1),
+        ([3, 3], 0),
+        ([10, 4, 2, 10], 2),
+        ([1, 1, 1, 1], 0),
+    ],
+)
 def test_last_stone_weight(stones, expected):
     solution = Solution()
     assert solution.lastStoneWeight(stones) == expected
